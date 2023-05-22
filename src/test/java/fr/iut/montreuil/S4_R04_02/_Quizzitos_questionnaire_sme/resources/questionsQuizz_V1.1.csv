@@ -1,4 +1,4 @@
-﻿1;1;fr;De quel petit objet se munit le golfeur pour surélever sa balle avant de la frapper ?;Tee;1;Le joueur peut poser sa balle sur une cheville de bois ou de plastique qui ne peut pas être utilisée en dehors des départs.;https://fr.wikipedia.org/wiki/Matériel_de_golf
+1;1;fr;De quel petit objet se munit le golfeur pour surélever sa balle avant de la frapper ?;Tee;1;Le joueur peut poser sa balle sur une cheville de bois ou de plastique qui ne peut pas être utilisée en dehors des départs.;https://fr.wikipedia.org/wiki/Matériel_de_golf
 1;2;fr;Quel sport de raquette porte le nom de la ville anglaise où il fut inventé ?;Badminton;1;Le badminton est toujours pratiqué en intérieur car avec le vent, en extérieur, le volant peut brusquement changer de direction.;https://fr.wikipedia.org/wiki/Badminton
 1;3;fr;Combien y a-t-il de joueurs sur le terrain dans une équipe de football ?;Onze;1;Codifié par les Britanniques à la fin du XIXe siècle, le football s'est doté en 1904 d'une fédération internationale, la FIFA.;https://fr.wikipedia.org/wiki/Football
 1;4;fr;Quel tapis à ressorts sert au gymnaste à faire toutes sortes de figures ?;Trampoline;1;Le terme générique de trampoline englobe trois disciplines : le trampoline, le tumbling et le double mini trampoline.;https://fr.wikipedia.org/wiki/Trampoline_(sport)
@@ -28,3 +28,7 @@
 1;28;fr;Quelle course de fond suédoise emprunte la piste des Dalécarliens ?;Vasaloppet;3;La course se tient le premier dimanche de mars et près de 15 000 skieurs prennent le départ en 10 vagues successives.;https://fr.wikipedia.org/wiki/Vasaloppet
 1;29;fr;Quelle planche de surf pour grosses vagues permet de démarrer très tôt sur la vague ?;Gun;3;En fonction du temps, des préférences et de la manière de surfer, il existe différentes type de planches (appelées shape).;https://fr.wikipedia.org/wiki/Matériel_de_surf
 1;30;fr;Dans quelle ville les premiers jeux Olympiques d'hiver ont-ils eu lieu en 1924 ?;Chamonix;3;La compétition rassembla 258 athlètes de 16 pays qui disputèrent un total de 16 épreuves dans 6 sports différents.;https://fr.wikipedia.org/wiki/Jeux_olympiques_d'hiver_de_1924
+;31;fr;Quelle question à un id questionnaire non référencé ?;31;1;;
+1;32;;Quelle question à un son langage du questionnaire non référencé ?;32;2;;
+1;;fr;Quelle question à un son id de la question non référencé ?;vide;3;;
+1;34;fr;Quelle question à un son libéllé de la question vide ?;34;1;;
