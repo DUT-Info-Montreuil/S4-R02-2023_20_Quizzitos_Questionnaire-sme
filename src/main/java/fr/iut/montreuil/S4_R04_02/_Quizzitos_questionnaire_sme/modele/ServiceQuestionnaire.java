@@ -30,8 +30,14 @@ public class ServiceQuestionnaire implements  QuestionLoader {
             for (String[] row : csvData) {
                 if (row.length == 0)
                     throw new EmptyFileException();
+
+                for (String column : row) {
+                    if (column.isEmpty()) {
+                        throw new FileErrorLoadingCSVException();
+                    }
+                }
                 // Accédez aux colonnes par leur index, en fonction de l'ordre spécifié
-//                int idQuestionnaire = Integer.parseInt(row[0].replaceAll("\\p{C}", ""));
+                int idQuestionnaire = Integer.parseInt(row[0].replaceAll("\\p{C}", ""));
                 int idQuestion = Integer.parseInt(row[1]);
                 String langue = row[2];
                 String question = row[3];
@@ -39,13 +45,13 @@ public class ServiceQuestionnaire implements  QuestionLoader {
                 int difficulte = Integer.parseInt(row[5]);
                 String explication = row[6];
                 String source = row[7];
-                QuestionFichierBO questionBO = new QuestionFichierBO(1,idQuestion,langue,question,reponse,difficulte,explication,source);
+                QuestionFichierBO questionBO = new QuestionFichierBO(idQuestionnaire,idQuestion,langue,question,reponse,difficulte,explication,source);
                 list.add(questionBO);
             }
             return list;
-        } catch (CsvException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        }catch (FileNotFoundException e) {
+            throw new OpenFileCSVException();
+        } catch (IOException | CsvException e) {
             e.printStackTrace();
         }
         return list;
