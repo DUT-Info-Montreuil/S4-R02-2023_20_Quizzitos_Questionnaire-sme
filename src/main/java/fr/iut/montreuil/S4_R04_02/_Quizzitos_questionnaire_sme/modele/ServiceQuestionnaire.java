@@ -5,7 +5,9 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.entities.bo.QuestionFichierBO;
+import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException;
 import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.FileErrorLoadingCSVException;
+import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.FileNotFoundException;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,13 +17,14 @@ import java.util.List;
 public class ServiceQuestionnaire implements  QuestionLoader {
 
     @Override
-    public List<QuestionFichierBO> chargerFichierQuestionnaire(String filename) throws FileErrorLoadingCSVException, FileErrorLoadingCSVException {
+    public List<QuestionFichierBO> chargerFichierQuestionnaire(String filename) throws FileNotFoundException, FileErrorLoadingCSVException, EmptyFileException {
         List<QuestionFichierBO> list = new ArrayList<>();
         try (CSVReader reader = new CSVReaderBuilder(new FileReader(filename))
                 .withCSVParser(new CSVParserBuilder().withSeparator(';').build())
                 .build()) {
             List<String[]> csvData = reader.readAll();
-
+            if (csvData.size() == 0)
+                throw new EmptyFileException();
             for (String[] row : csvData) {
                 // Accédez aux colonnes par leur index, en fonction de l'ordre spécifié
                 int idQuestionnaire = Integer.parseInt(row[0].replaceAll("\\p{C}", ""));

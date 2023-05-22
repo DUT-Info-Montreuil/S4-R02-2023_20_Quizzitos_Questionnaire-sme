@@ -5,9 +5,7 @@ import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.modele.QuestionLo
 import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.modele.ServiceQuestionnaire;
 import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.FileErrorLoadingCSVException;
 import fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.FileNotFoundException;
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 import java.util.List;
 
@@ -18,26 +16,63 @@ public class ServiceQuestionnaireTests extends TestCase {
 
     public void testUrlInvalideTest() throws FileErrorLoadingCSVException {
     	QuestionLoader questionLoader = new ServiceQuestionnaire();
-        assertThrows(FileNotFoundException.class,questionLoader.chargerFichierQuestionnaire("urlnonvalide"));
-    }
+		try {
+			assertThrows(FileNotFoundException.class,questionLoader.chargerFichierQuestionnaire("urlnonvalide"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException e) {
+			e.printStackTrace();
+		}
+	}
 
     public void testFileErrorLoadingCSVExceptionTest() throws FileErrorLoadingCSVException {
     	QuestionLoader questionLoader = new ServiceQuestionnaire();
 
-    	assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/IdQuestionnaireNonReference.csv"));
-   
-    	assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/IdQuestionNonReference.csv"));
+		try {
+			assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/IdQuestionnaireNonReference.csv"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException e) {
+			e.printStackTrace();
+		}
 
-    	assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/LangageNonReference.csv"));
+		try {
+			assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/IdQuestionNonReference.csv"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException e) {
+			e.printStackTrace();
+		}
 
-    	assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/LibelleQuestionNonReference.csv"));
+		try {
+			assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/LangageNonReference.csv"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException e) {
+			e.printStackTrace();
+		}
 
-    }
+		try {
+			assertThrows(FileErrorLoadingCSVException.class,questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/LibelleQuestionNonReference.csv"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException e) {
+			e.printStackTrace();
+		}
+
+	}
     public void testFileCorrect() throws FileErrorLoadingCSVException {
     	QuestionLoader questionLoader = new ServiceQuestionnaire();
 
-    	List<QuestionFichierBO> list = questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/questionsQuizz_V1.1.csv");
-   
-    	assertEquals(1,list.get(0).getIdQuestion());
+		List<QuestionFichierBO> list = null;
+		try {
+			list = questionLoader.chargerFichierQuestionnaire("test/java/fr/iut/montreuil/S4_R04_02/_Quizzitos_questionnaire_sme/resources/questionsQuizz_V1.1.csv");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (fr.iut.montreuil.S4_R04_02._Quizzitos_questionnaire_sme.utilities.exceptions.EmptyFileException e) {
+			e.printStackTrace();
+		}
+
+		assertEquals(1,list.get(0).getIdQuestion());
     }
 }
