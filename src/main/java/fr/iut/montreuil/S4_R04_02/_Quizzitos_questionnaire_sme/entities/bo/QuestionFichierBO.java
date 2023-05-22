@@ -20,4 +20,36 @@ public class QuestionFichierBO {
         this.explicationQuestion = explicationQuestion;
         this.refQuestion = refQuestion;
     }
+
+    public int getIdQuestionnaire() {
+        return idQuestionnaire;
+    }
+
+    public int getIdQuestion() {
+        return idQuestion;
+    }
+
+    public String getLangue() {
+        return langue;
+    }
+
+    public String getLibQuestion() {
+        return libQuestion;
+    }
+
+    public String getReponseQuestion() {
+        return reponseQuestion;
+    }
+
+    public int getDifficultQuestion() {
+        return difficultQuestion;
+    }
+
+    public String getExplicationQuestion() {
+        return explicationQuestion;
+    }
+
+    public String getRefQuestion() {
+        return refQuestion;
+    }
 }
